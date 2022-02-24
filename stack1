@@ -1,0 +1,56 @@
+#include<stdio.h>
+int yigit[7];
+int top=-1;
+void push(int dizi[]){
+	if(top==6){
+		printf("Dizin Dolu\nEleman Eklenemez\n");
+	}
+	else{
+		int x;
+		printf("Bir Deger Giriniz:");
+		scanf("%d",&x);
+		dizi[top+1]=x;
+		top++;
+	}
+}
+void pop(){
+	if(top==-2){
+		printf("Dizim Bos\nEleman Cikartilamaz\n");
+	}
+	else{
+	top--;
+	}
+}
+int yazdir(int dizi[]){
+	top=-1;
+	for(top;top+1<7;top++){
+		printf("%d\n",dizi[top+1]);
+	}
+	top=-1;
+}
+int main(){
+	printf("Yigit Islemleri\n1.Ekle\n2.Cikar\n3.Yazdir\n4.Cikis\n");
+	int x,y=1;
+	
+	while(y=1){
+		printf("Islemi Seciniz:");
+		scanf("%d",&x);
+		switch(x){
+			case 1:
+				push(yigit);
+				break;
+			case 2:
+				pop();
+				break;
+			case 3:
+				yazdir(yigit);
+				break;
+			case 4:
+				y=4;
+				break;
+			default:
+				printf("Gecersiz Islem\n");
+				break;
+		}
+	}
+}
